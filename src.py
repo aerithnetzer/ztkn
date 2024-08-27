@@ -22,6 +22,15 @@ def extract_wikilinks(md_content):
     return re.findall(r"\[\[(.*?)\]\]", md_content)
 
 
+def extract_context(md_content, link):
+    idx = md_content.find(link)
+    if idx == -1:
+        return ""
+    start = max(idx - 10, 0)
+    end = min(idx + len(link) + 10, len(md_content))
+    return md_content[start:end]
+
+
 def build_graph(md_files):
     graph = nx.Graph()
     added_nodes = set()
@@ -42,12 +51,18 @@ def build_graph(md_files):
                     added_nodes.add(link)
                 graph.add_edge(title, link)
 
+                # Add context as a tooltip
+                context = extract_context(content, link)
+                graph.nodes[link]["title"] = context
+
     return graph
 
 
 def visualize_graph(graph):
     net = Network(notebook=False)
     net.from_nx(graph)
+    for node in net.nodes:
+        node["title"] = graph.nodes[node["id"]].get("title", "")
     net.show("graph.html")
 
 
