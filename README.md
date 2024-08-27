@@ -1,6 +1,20 @@
 # ztkn
 
-Small flask app.
+## What this thing does
+
+Parses a directory of `.md` files, create a network graph of wikilinks using `networkx` and creates an interactive graph in web browser using `pyvis` and `flask`.
+
+## Motivation
+
+Tools such as [foam](https://github.com/foambubble/foambubble.github.io) and amethyst create interactivate graphs but that are highly-integrated features that are difficult to use outside of their respective application ecosystems. This allows you to interact with your second brain, even if you are on neovim, emacs, or helix.
+
+## Installation
+
+Clone repository to `~/` and set the `src.py` to your PATH. 
+
+## How to use
+
+`ztkn ~/path/to/your/vault`
 
 ## TODOs
 
