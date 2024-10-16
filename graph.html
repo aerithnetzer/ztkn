@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "test2.md", "label": "test2.md", "shape": "dot", "size": 10, "title": "o meow! [[test2.md]] and hel"}, {"color": "#97c2fc", "id": "test1.md", "label": "test1.md", "shape": "dot", "size": 10, "title": ""}, {"color": "#97c2fc", "id": "README.md", "label": "README.md", "shape": "dot", "size": 10, "title": ""}]);
-                  edges = new vis.DataSet([{"from": "test2.md", "to": "test1.md", "width": 1}]);
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "file_path": "/Users/ysc4337/warlock/journal/20241015145445.md", "id": "Creativity in Classical Thought", "label": "Creativity in Classical Thought", "shape": "dot", "size": 10, "title": ""}, {"color": "#97c2fc", "file_path": "/Users/ysc4337/warlock/journal/20241015145445.md", "id": "20241014213406", "label": "20241014213406", "shape": "dot", "size": 10, "title": "hought\n\n[[20241014213406]]\n\nPlato "}, {"color": "#97c2fc", "file_path": "/Users/ysc4337/warlock/journal/20241014213406.md", "id": "The Creative Mind", "label": "The Creative Mind", "shape": "dot", "size": 10, "title": ""}, {"color": "#97c2fc", "file_path": "/Users/ysc4337/warlock/journal/20241014213406.md", "id": "20241014212551", "label": "20241014212551", "shape": "dot", "size": 10, "title": "e Mind\n\n[[20241014212551]] \n\n- Exa"}, {"color": "#97c2fc", "file_path": "/Users/ysc4337/warlock/journal/20241015145537.md", "id": "Four Doctrines of Art", "label": "Four Doctrines of Art", "shape": "dot", "size": 10, "title": ""}, {"color": "#97c2fc", "file_path": "/Users/ysc4337/warlock/journal/20241015145504.md", "id": "Plato v Aristotle of Fiction", "label": "Plato v Aristotle of Fiction", "shape": "dot", "size": 10, "title": ""}]);
+                  edges = new vis.DataSet([{"from": "Creativity in Classical Thought", "to": "20241014213406", "width": 1}, {"from": "The Creative Mind", "to": "20241014212551", "width": 1}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
@@ -151,5 +151,22 @@
               }
               drawGraph();
         </script>
+    
+    <script type="text/javascript">
+        network.on("doubleClick", function (params) {
+            if (params.nodes.length > 0) {
+                var nodeId = params.nodes[0];
+                var node = nodes.get(nodeId);
+                var filePath = node.file_path;
+                fetch("/open_file", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ file_path: filePath })
+                });
+            }
+        });
+    </script>
     </body>
 </html>
