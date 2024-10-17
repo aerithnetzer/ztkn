@@ -11,6 +11,7 @@ setup(
         "networkx",
         "tqdm",
         "pyvis",
+        "flask",
     ],
     entry_points={
         "console_scripts": [
