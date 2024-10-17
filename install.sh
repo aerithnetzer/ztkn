@@ -10,4 +10,4 @@ ln -s /usr/local/bin/ztkn/src.py /usr/local/bin/ztkn
 
 export PATH=$PATH:/usr/local/bin/ztkn
 
-python ./setup.py
+python /usr/local/bin/ztkn/setup.py
