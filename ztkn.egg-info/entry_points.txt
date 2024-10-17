@@ -1,2 +1,0 @@
-[console_scripts]
-ztkn = ztkn.src:main

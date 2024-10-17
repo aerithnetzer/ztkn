@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-setup.py
-ztkn.egg-info/PKG-INFO
-ztkn.egg-info/SOURCES.txt
-ztkn.egg-info/dependency_links.txt
-ztkn.egg-info/entry_points.txt
-ztkn.egg-info/requires.txt
-ztkn.egg-info/top_level.txt
