@@ -8,6 +8,7 @@ import webbrowser
 from flask import Flask, send_file, request
 import threading
 import requests
+import tqdm
 
 app = Flask(__name__)
 
@@ -39,7 +40,7 @@ def build_graph(md_files):
     added_nodes = set()
     file_paths = {}
 
-    for file_path in md_files:
+    for file_path in tqdm(md_files):
         with open(file_path, "r") as f:
             for line in f:
                 if line.startswith("# "):
