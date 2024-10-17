@@ -7,3 +7,4 @@ Author-email: your.email@example.com
 Requires-Dist: networkx
 Requires-Dist: tqdm
 Requires-Dist: pyvis
+Requires-Dist: flask

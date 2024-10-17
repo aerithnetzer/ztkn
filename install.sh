@@ -1,13 +1,14 @@
-curl https://raw.githubusercontent.com/aerithnetzer/ztkn/refs/heads/main/install.sh
+#!/bin/bash
 
-chmod +x install.sh
-
+# Clone the repository
 git clone https://github.com/aerithnetzer/ztkn/
 
-mv ztkn /usr/local/bin/
+# Move into the cloned directory
+cd ztkn
 
-ln -s /usr/local/bin/ztkn/src.py /usr/local/bin/ztkn
+# Make setup script executable and run it
+chmod +x setup.py
+python3 setup.py install
 
-export PATH=$PATH:/usr/local/bin/ztkn
-
-python /usr/local/bin/ztkn/setup.py install
+# Create a symlink for the ztkn CLI tool
+ln -s $(pwd)/src/ztkn.py /usr/local/bin/ztkn
