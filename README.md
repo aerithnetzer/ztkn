@@ -1,5 +1,13 @@
 # ztkn
 
+## Quickstart
+
+```sh
+wget https://raw.githubusercontent.com/aerithnetzer/ztkn/refs/heads/main/install.sh
+sudo chmod +x install.sh
+sudo sh install.sh
+```
+
 ## What this thing does
 
 Parses a directory of `.md` files, create a network graph of wikilinks using `networkx` and creates an interactive graph in web browser using `pyvis` and `flask`.
