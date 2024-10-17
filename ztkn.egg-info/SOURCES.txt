@@ -1,4 +1,5 @@
 README.md
+pyproject.toml
 setup.py
 ztkn.egg-info/PKG-INFO
 ztkn.egg-info/SOURCES.txt
